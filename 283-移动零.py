@@ -26,11 +26,22 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+# 方案一：
+#         for i in nums:
+#             if i == 0:
+#                 nums.remove(i)
+#                 nums.append(0)
+#         print(nums)
 
-        for i in nums:
-            if i == 0:
-                nums.remove(i)
-                nums.append(0)
+# 方案二：
+        write = 0
+        for read in range(len(nums)):
+            if nums[read] != 0:
+                nums[write] = nums[read]
+                write += 1
+
+        for w in range(write,len(nums)):
+            nums[w] = 0
         print(nums)
 
 if __name__ == '__main__':
